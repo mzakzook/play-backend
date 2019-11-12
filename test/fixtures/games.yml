@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  table_id: 1
+  num_players: 1
+  full: false
+
+two:
+  table_id: 1
+  num_players: 1
+  full: false
