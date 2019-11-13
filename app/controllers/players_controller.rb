@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   def index
     players = Player.all
-    render json: players
+    render json: PlayerSerializer.new(players)
   end
 
   def show

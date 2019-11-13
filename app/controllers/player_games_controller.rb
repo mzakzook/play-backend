@@ -1,25 +1,18 @@
 class PlayerGamesController < ApplicationController
   def index
     player_games = PlayerGame.all
-    render json: player_games
+    render json: PlayerGameSerializer.new(player_games)
   end
 
   def show
     player_game = PlayerGame.find(params[:id])
-    render json: player_game
+    render json: PlayerGameSerializer.new(player_game)
   end
 
   def create
     player_game = PlayerGame.new(player_game_params)
-		# byebug
-
-		# {animal: {
-		# 	name: "",
-		# 	gender: ""
-		# }}
-
 		if player_game.save
-			render json: player_game
+			render json: PlayerGameSerializer.new(player_game)
 		else
 			render json: { error: "Something went wrong, try again" }
     end

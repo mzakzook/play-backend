@@ -1,7 +1,7 @@
 class TablesController < ApplicationController
   def index
     tables = Table.all
-    render json: tables
+    render json: TableSerializer.new(tables)
   end
 
   def show
