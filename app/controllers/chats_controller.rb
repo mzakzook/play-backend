@@ -13,7 +13,7 @@ class ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:game).permit(:mesaage, :player_id)
+    params.require(:chat).permit(:message, :player_id)
   end
 
 end
