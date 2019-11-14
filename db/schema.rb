@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_172921) do
+ActiveRecord::Schema.define(version: 2019_11_14_012515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.string "message"
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_chats_on_player_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.integer "table_id"
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_172921) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "chats", "players"
   add_foreign_key "player_games", "games"
   add_foreign_key "player_games", "players"
 end
