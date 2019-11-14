@@ -10,14 +10,14 @@ class PlayersController < ApplicationController
   end
 
   def create
-    player = Player.new(player_params)
+    player = Player.create(player_params)
     render json: player
   end
 
   private
 
   def player_params
-    params.require(:player).permit(:name, :company)
+    params.require(:player).permit(:name)
   end
 
 end

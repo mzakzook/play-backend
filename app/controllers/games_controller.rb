@@ -12,7 +12,8 @@ class GamesController < ApplicationController
 
   def create
     #think about how games are created
-    game = Game.new(game_params)
+    game = Game.create(game_params)
+    render json: game
 
   end
 
