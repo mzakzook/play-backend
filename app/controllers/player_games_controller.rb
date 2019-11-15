@@ -1,7 +1,14 @@
 class PlayerGamesController < ApplicationController
   def index
-    player_games = PlayerGame.all
-    render json: PlayerGameSerializer.new(player_games)
+    
+    if params[:table_type]
+      player_games = PlayerGame.by_type_and_sorted(params[:table_type])
+      render json: player_games
+    else
+      player_games = PlayerGame.all
+      render json: PlayerGameSerializer.new(player_games)
+    end
+    
   end
 
   def show
