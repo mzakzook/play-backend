@@ -12,7 +12,7 @@ class PlayerGame < ApplicationRecord
     else
       return PlayerGame.all
     end
-    type_games = PlayerGame.select{|pg| pg.game.table.table_type == table_type}.group_by{|pg| pg.player_id}
+    type_games = PlayerGame.select{|pg| pg.game.table.table_type == table_type && pg.game.full}.group_by{|pg| pg.player_id}
     players = []
     type_games.each {|key, value| players << [value.length, value[0].player_id] }
     sorted_players = players.sort_by {|player| player[0] }.reverse
