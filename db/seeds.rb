@@ -16,10 +16,3 @@ one_foosball = Game.create(table_id: foosball.id, num_players: 2, full: false)
 two_foosball = Game.create(table_id: foosball.id, num_players: 4, full: false)
 one_shuffleboard = Game.create(table_id: shuffleboard.id, num_players: 2, full: false)
 two_shuffleboard = Game.create(table_id: shuffleboard.id, num_players: 4, full: false)
-
-max = Player.create(name: "Max")
-norris = Player.create(name: "Norris")
-
-hello = Chat.create(message: "Hello", player_id: 1)
-
-
